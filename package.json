@@ -1,6 +1,6 @@
 {
   "name": "vue-step-indicator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple step indicator for Vue.js",
   "repository": {
     "url": "egoist/vue-step-indicator",
