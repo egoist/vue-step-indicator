@@ -1,0 +1,49 @@
+{
+  "name": "vue-step-indicator",
+  "version": "0.0.0",
+  "description": "Simple step indicator for Vue.js",
+  "repository": {
+    "url": "egoist/vue-step-indicator",
+    "type": "git"
+  },
+  "main": "dist/vue-step-indicator.cjs.js",
+  "module": "dist/vue-step-indicator.es.js",
+  "unpkg": "dist/vue-step-indicator.js",
+  "cdn": "dist/vue-step-indicator.js",
+  "jsdelivr": "dist/vue-step-indicator.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm test && npm run build",
+    "test": "echo fine",
+    "build": "bili",
+    "example": "poi",
+    "build:example": "poi build"
+  },
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com"
+  },
+  "license": "MIT",
+  "poi": {
+    "entry": "example/index.js",
+    "outDir": "example/dist"
+  },
+  "bili": {
+    "format": [
+      "cjs",
+      "umd",
+      "es"
+    ],
+    "moduleName": "StepIndicator"
+  },
+  "devDependencies": {
+    "bili": "^3.0.0",
+    "poi": "^10.0.0-beta.6",
+    "postcss-cssnext": "^3.1.0",
+    "prismjs": "^1.13.0",
+    "vue-github-badge": "^1.0.1",
+    "vue-prism-component": "^1.0.1"
+  }
+}
