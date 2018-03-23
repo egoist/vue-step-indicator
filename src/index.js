@@ -1,3 +1,4 @@
+import assign from 'nano-assign'
 import './style.css'
 
 export default {
@@ -21,21 +22,21 @@ export default {
       default: 'rgb(130, 140, 153)'
     }
   },
-  render(h, { props }) {
+  render(h, { props, data }) {
     const steps = []
     for (let i = 0; i < props.total; i++) {
       const color = i === props.current ? props.currentColor : props.defaultColor
-      steps.push(
-        <div class='step-indicator' style={{color, borderColor: color}}>
-          {i + 1}
-        </div>
-      )
+      steps.push(h('div', {
+        class: 'step-indicator',
+        style: {color, borderColor: color}
+      }, [i + 1]))
     }
-    return (
-      <div class="step-indicators">
-        <span class="step-indicators-line" />
-        {steps}
-      </div>
-    )
+    const attrs = assign({}, data, {
+      class: ['step-indicators', data.class]
+    })
+    return h('div', attrs, [
+      h('span', {class: 'step-indicators-line'}),
+      ...steps
+    ])
   }
 }

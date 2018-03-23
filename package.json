@@ -45,5 +45,8 @@
     "prismjs": "^1.13.0",
     "vue-github-badge": "^1.0.1",
     "vue-prism-component": "^1.0.1"
+  },
+  "dependencies": {
+    "nano-assign": "^1.0.0"
   }
 }

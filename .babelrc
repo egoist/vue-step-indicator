@@ -1,7 +1,7 @@
 {
   "presets": [
-    ["poi", {
-      "jsx": "vue"
+    ["@babel/preset-env", {
+      "modules": false
     }]
   ]
 }
