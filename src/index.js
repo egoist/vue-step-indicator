@@ -20,6 +20,9 @@ export default {
     defaultColor: {
       type: String,
       default: 'rgb(130, 140, 153)'
+    },
+    handleClick: {
+      type: Function
     }
   },
   render(h, { props, data }) {
@@ -28,7 +31,10 @@ export default {
       const color = i === props.current ? props.currentColor : props.defaultColor
       steps.push(h('div', {
         class: 'step-indicator',
-        style: {color, borderColor: color}
+        style: {color, borderColor: color},
+        on: {
+          click: () => props.handleClick && props.handleClick(i)
+        }
       }, [i + 1]))
     }
     const attrs = assign({}, data, {

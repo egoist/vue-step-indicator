@@ -15,7 +15,7 @@
       Default color: <input type="color" v-model="defaultColor">
     </label>
     <div class="indicator">
-      <step-indicator :current="current" :total="total" :current-color="currentColor" :default-color="defaultColor"></step-indicator>
+      <step-indicator :handleClick="handleClick" :current="current" :total="total" :current-color="currentColor" :default-color="defaultColor"></step-indicator>
     </div>
     <div class="code">
       <prism language="html">{{ code }}</prism>
@@ -44,6 +44,12 @@ export default {
       total: 3,
       currentColor: StepIndicator.props.currentColor.default,
       defaultColor: StepIndicator.props.defaultColor.default
+    }
+  },
+
+  methods: {
+    handleClick(index) {
+      console.log('Clicked', index)
     }
   },
 

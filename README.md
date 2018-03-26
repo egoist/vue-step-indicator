@@ -44,6 +44,7 @@ export default {
 |total|number|(Required)|Total steps|
 |currentColor|string|`'rgb(68, 0, 204)'`|Color of current step|
 |defaultColor|string|`'rgb(130, 140, 153)'`|Default color of each step|
+|handleClick|function<index>||Trigerred when an indicator is clicked|
 
 ## License
 
