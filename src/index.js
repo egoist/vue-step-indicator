@@ -29,14 +29,14 @@ export default {
     const steps = []
     const style = []
     for (let i = 0; i < props.total; i++) {
-      const color = (i + 1) <= props.current ? props.currentColor : props.defaultColor
-      const active = i < props.current ? ' active': ''
+      const color = i <= props.current ? props.currentColor : props.defaultColor
+      const active = i <= props.current ? ' active': ''
       const item = 'step-item-' + i
       const width = (100 / props.total) + '%'
       steps.push(h('div', {
         class: 'step-slider-item ' + item + active,
         style: {color, borderColor: color, width: width},
-        attrs: {'data-value': i + 1},
+        attrs: {'data-value': i},
         on: {
           click: () => props.handleClick && props.handleClick(i)
         }
