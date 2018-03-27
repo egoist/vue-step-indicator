@@ -26,7 +26,6 @@
   border-radius: 50%;
   z-index: 2;
   transition: all 0.1s ease-out 0.2s;
-  -webkit-transition: all 0.1s ease-out 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +39,7 @@
   width: 0%;
   height: 5px;
   z-index: 1;
-  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .step-progress .step-slider .step-slider-item.active:before {
