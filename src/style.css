@@ -20,13 +20,13 @@
   height: 25px;
   position: absolute;
   top: -18px;
-  right: 0;
+  left: 0;
   padding: 2px;
   background-color: white;
   border-radius: 50%;
   z-index: 2;
-  transition: all 0.3s ease-out 0.5s;
-  -webkit-transition: all 0.3s ease-out 0.5s;
+  transition: all 0.1s ease-out 0.2s;
+  -webkit-transition: all 0.1s ease-out 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
