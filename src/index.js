@@ -33,6 +33,9 @@ export default {
       const active = i <= props.current ? ' active': ''
       const item = 'step-item-' + i
       const width = (100 / props.total) + '%'
+      if (i == (props.total - 1)) {
+        width = '1px';
+      }
       steps.push(h('div', {
         class: 'step-slider-item ' + item + active,
         style: {color, borderColor: color, width: width},

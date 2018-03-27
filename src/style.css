@@ -8,7 +8,6 @@
 }
 
 .step-progress .step-slider .step-slider-item {
-  min-width: 25px;
   height: 5px;
   position: relative;
   float: left;
@@ -25,10 +24,13 @@
   background-color: white;
   border-radius: 50%;
   z-index: 2;
-  transition: all 0.1s ease-out 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.step-progress .step-slider .step-slider-item:last-child:after {
+  left: 90%;
 }
 
 .step-progress .step-slider .step-slider-item:before {
@@ -41,6 +43,11 @@
   z-index: 1;
   transition: all 0.5s ease-out;
 }
+
+.step-progress .step-slider .step-slider-item:last-child:before {
+  right: 2px;
+}
+
 
 .step-progress .step-slider .step-slider-item.active:before {
   width: 100%;
