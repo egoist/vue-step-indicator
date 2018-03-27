@@ -27,51 +27,33 @@ export default {
   },
   render(h, { props, data }) {
     const steps = []
-    const style = []
     for (let i = 0; i < props.total; i++) {
       const color = i <= props.current ? props.currentColor : props.defaultColor
       const active = i <= props.current ? ' active': ''
-      const item = 'step-item-' + i
       const width = (100 / props.total) + '%'
       if (i == (props.total - 1)) {
-        width = '1px';
+        width = '0';
       }
       steps.push(h('div', {
-        class: 'step-slider-item ' + item + active,
+        class: 'step-slider-item step-item' + active,
         style: {color, borderColor: color, width: width},
         attrs: {'data-value': i},
         on: {
           click: () => props.handleClick && props.handleClick(i)
         }
       }))
-      style.push(`
-        .${item} {
-          background-color: ${props.defaultColor};
-        }
 
-        .${item}:after {
-          border: 5px solid ${props.defaultColor};
-        }
-
-        .${item}:before {
-          background-color: ${props.defaultColor};
-        }
-
-        .${item}.active:after {
-          border-color: ${props.currentColor};
-        }
-
-        .${item}.active:before {
-          background-color: ${props.currentColor};
-        }
-      `)
+      document.styleSheets[0].addRule(`.step-item`, `background-color: ${props.defaultColor};`);
+      document.styleSheets[0].addRule(`.step-item:after`,`border: 5px solid ${props.defaultColor};`);
+      document.styleSheets[0].addRule(`.step-item:before`,`background-color: ${props.defaultColor};`);
+      document.styleSheets[0].addRule(`.step-item.active:after`,`border-color: ${props.currentColor};`);
+      document.styleSheets[0].addRule(`.step-item.active:before`,`background-color: ${props.currentColor};`);
     }
     const attrs = assign({}, data, {
       class: ['step-progress', data.class]
     })
     return h('div', attrs, [
-      h('div', {class: 'step-slider'}, [...steps]),
-      h('style', {}, [...style])
+      h('div', {class: 'step-slider'}, [...steps])
     ])
   }
 }

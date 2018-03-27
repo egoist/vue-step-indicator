@@ -30,7 +30,7 @@
 }
 
 .step-progress .step-slider .step-slider-item:last-child:after {
-  left: 90%;
+  left: 100%;
 }
 
 .step-progress .step-slider .step-slider-item:before {
@@ -47,7 +47,6 @@
 .step-progress .step-slider .step-slider-item:last-child:before {
   right: 2px;
 }
-
 
 .step-progress .step-slider .step-slider-item.active:before {
   width: 100%;
