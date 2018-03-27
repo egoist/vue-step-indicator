@@ -27,7 +27,7 @@ export default {
   },
   render(h, { props, data }) {
     const steps = []
-    for (let i = 0; i < props.total; i++) {
+    for (let i = 1; i <= props.total; i++) {
       const color = i === props.current ? props.currentColor : props.defaultColor
       steps.push(h('div', {
         class: 'step-indicator',
@@ -35,7 +35,7 @@ export default {
         on: {
           click: () => props.handleClick && props.handleClick(i)
         }
-      }, [i + 1]))
+      }, [i]))
     }
     const attrs = assign({}, data, {
       class: ['step-indicators', data.class]
