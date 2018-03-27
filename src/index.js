@@ -27,22 +27,48 @@ export default {
   },
   render(h, { props, data }) {
     const steps = []
+    const style = []
     for (let i = 0; i < props.total; i++) {
-      const color = i === props.current ? props.currentColor : props.defaultColor
+      const color = (i + 1) <= props.current ? props.currentColor : props.defaultColor
+      const active = i < props.current ? ' active': ''
+      const item = 'step-item-' + i
+      const width = (100 / props.total) + '%'
       steps.push(h('div', {
-        class: 'step-indicator',
-        style: {color, borderColor: color},
+        class: 'step-slider-item ' + item + active,
+        style: {color, borderColor: color, width: width},
+        attrs: {'data-value': i + 1},
         on: {
           click: () => props.handleClick && props.handleClick(i)
         }
-      }, [i + 1]))
+      }))
+      style.push(`
+        .${item} {
+          background-color: ${props.defaultColor};
+        }
+
+        .${item}:after {
+          border: 5px solid ${props.defaultColor};
+        }
+
+        .${item}:before {
+          background-color: ${props.defaultColor};
+        }
+
+        .${item}.active:after {
+          border-color: ${props.currentColor};
+        }
+
+        .${item}.active:before {
+          background-color: ${props.currentColor};
+        }
+      `)
     }
     const attrs = assign({}, data, {
-      class: ['step-indicators', data.class]
+      class: ['step-progress', data.class]
     })
     return h('div', attrs, [
-      h('span', {class: 'step-indicators-line'}),
-      ...steps
+      h('div', {class: 'step-slider'}, [...steps]),
+      h('style', {}, [...style])
     ])
   }
 }

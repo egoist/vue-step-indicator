@@ -1,32 +1,48 @@
-.step-indicators {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+.step-progress {
+  padding: 16px;
+  margin: 0 auto;
 }
 
-.step-indicator {
-  border: 2px solid;
+.step-progress .step-slider {
+  width: 100%;
+}
+
+.step-progress .step-slider .step-slider-item {
+  min-width: 25px;
+  height: 5px;
+  position: relative;
+  float: left;
+}
+
+.step-progress .step-slider .step-slider-item:after {
+  content: attr(data-value);
+  min-width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -18px;
+  right: 0;
+  padding: 2px;
+  background-color: white;
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
+  z-index: 2;
+  transition: all 0.3s ease-out 0.5s;
+  -webkit-transition: all 0.3s ease-out 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 700;
-  z-index: 2;
-  background-color: white;
-  box-sizing: border-box;
 }
 
-.step-indicators-line {
+.step-progress .step-slider .step-slider-item:before {
+  content: "";
   position: absolute;
-  height: 2px;
-  top: 50%;
-  left: 24px;
-  right: 24px;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
   z-index: 1;
-  background: rgb(223, 231, 239);
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.step-progress .step-slider .step-slider-item.active:before {
+  width: 100%;
 }

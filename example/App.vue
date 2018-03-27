@@ -3,7 +3,7 @@
     <github-badge slug="egoist/vue-step-indicator" />
     <h1><span>👣</span> vue-step-indicator</h1>
     <label>
-      Current step: <input type="number" v-model.number="current" min="0" :max="total - 1">
+      Current step: <input type="number" v-model.number="current" min="0" :max="total">
     </label>
     <label>
       Total steps: <input type="number" v-model.number="total" min="2" max="10">
@@ -15,7 +15,13 @@
       Default color: <input type="color" v-model="defaultColor">
     </label>
     <div class="indicator">
-      <step-indicator :handleClick="handleClick" :current="current" :total="total" :current-color="currentColor" :default-color="defaultColor"></step-indicator>
+      <step-indicator
+        :handleClick="handleClick"
+        :current="current"
+        :total="total"
+        :current-color="currentColor"
+        :default-color="defaultColor"
+      ></step-indicator>
     </div>
     <div class="code">
       <prism language="html">{{ code }}</prism>
@@ -40,7 +46,7 @@ export default {
 
   data() {
     return {
-      current: 1,
+      current: 0,
       total: 3,
       currentColor: StepIndicator.props.currentColor.default,
       defaultColor: StepIndicator.props.defaultColor.default
