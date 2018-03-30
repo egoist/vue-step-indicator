@@ -15,7 +15,7 @@
       Default color: <input type="color" v-model="defaultColor">
     </label>
     <div class="indicator">
-      <step-indicator :handleClick="handleClick" :current="current" :total="total" :current-color="currentColor" :default-color="defaultColor"></step-indicator>
+      <step-indicator :handleClick="handleClick" :current="current" :total="total" :current-color="currentColor" :default-color="defaultColor"><div class="step-indicator-block"/></step-indicator>
     </div>
     <div class="code">
       <prism language="html">{{ code }}</prism>
@@ -99,5 +99,18 @@ label input {
 
 .indicator {
   padding: 20px 0;
+}
+
+.step-indicator-block {
+  border: 2px solid;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  z-index: 2;
+  background-color: white;
+  box-sizing: border-box;
 }
 </style>

@@ -25,12 +25,13 @@ export default {
       type: Function
     }
   },
-  render(h, { props, data }) {
+  render(h, { props, data, children, slots }) {
+    // console.log(children[0]);
     const steps = []
     for (let i = 0; i < props.total; i++) {
       const color = i === props.current ? props.currentColor : props.defaultColor
-      steps.push(h('div', {
-        class: 'step-indicator',
+      steps.push(h(children[0].tag, {
+        class: children[0].data.staticClass,
         style: {color, borderColor: color},
         on: {
           click: () => props.handleClick && props.handleClick(i)
