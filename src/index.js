@@ -25,7 +25,7 @@ export default {
       type: Function
     }
   },
-  render(h, { props, data, children, slots }) {
+  render(h, { props, data, children }) {
     // console.log(children[0]);
     const steps = []
     for (let i = 0; i < props.total; i++) {
