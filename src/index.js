@@ -30,7 +30,7 @@ export default {
     for (let i = 0; i < props.total; i++) {
       const color = i === props.current ? props.currentColor : props.defaultColor
       steps.push(h('div', {
-        class: 'step-indicator',
+        class: ['step-indicator', i === props.current ? 'current-step' : [i < props.current ? 'completed-step' : 'disabled-step']],
         style: {color, borderColor: color},
         on: {
           click: () => props.handleClick && props.handleClick(i)
