@@ -14,7 +14,7 @@ CDN: [UNPKG](https://unpkg.com/vue-step-indicator/dist/) | [jsDelivr](https://cd
 
 ## Usage
 
-👉👀 [Check out the demo!](https://vue-step-indicator.egoist.rocks)
+👉👀 [Check out the demo!](https://vue-step-indicator.egoist.sh)
 
 ```vue
 <template>
