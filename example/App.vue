@@ -100,4 +100,5 @@ label input {
 .indicator {
   padding: 20px 0;
 }
+
 </style>

@@ -25,17 +25,21 @@ export default {
       type: Function
     }
   },
-  render(h, { props, data }) {
+  render(h, { props, data, children }) {
     const steps = []
     for (let i = 0; i < props.total; i++) {
       const color = i === props.current ? props.currentColor : props.defaultColor
-      steps.push(h('div', {
-        class: 'step-indicator',
+      const customClass = children ? children[0].data.staticClass : ''
+      const data = children ? children[0].data : {}
+      const attrs = assign({}, data, {
+        class: ['step-indicator', customClass],
         style: {color, borderColor: color},
         on: {
           click: () => props.handleClick && props.handleClick(i)
         }
-      }, [i + 1]))
+      })
+      const tagName = children ? children[0].tag : 'div'
+      steps.push(h(tagName, attrs, [i + 1]))
     }
     const attrs = assign({}, data, {
       class: ['step-indicators', data.class]
